@@ -1,0 +1,16 @@
+
+body{
+    font-family: 'Roboto Slab', serif;
+}
+
+.ui-helper-hidden-accessible{
+    display: none;
+} 
+
+.dataTables_info{
+    display: none;
+}
+
+.dataTables_length{
+    display: none;
+}
