@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="Visit Javascript/style.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+</head>
+<body>
+
+<nav id="mainNavBar" class="navbar  navbar-dark bg-dark navbar-expand-md py-0 sticky-top">
+    <a href="#" class="navbar-brand"><i class="fas fa-pizza-slice  "></i>Hospital</a>
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navLinks"
+            aria-label="Toggle Navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navLinks">
+        <ul class="navbar-nav ">
+            <li class="nav-item  "><a href="patient.html" class="nav-link">PATIENT</a></li>
+            <li class="nav-item"><a href="visitlog.html" class="nav-link">VISIT</a></li>
+            <li class="nav-item"><a href="prescription.html" class="nav-link">PRESCRIPTION</a></li>
+            <li class="nav-item"><a href="disease.html" class="nav-link">DISEASE</a></li>
+            <li class="nav-item"><a href="drug.html" class="nav-link">DRUG</a></li>
+            <li class="nav-item"><a href="lab.html" class="nav-link">LAB</a></li>
+            <li class="nav-item"><a id="logOut" href="index.html" class="nav-link">SIGN OUT</a></li>
+
+        </ul>
+    </div>
+</nav>
+
+
+<div class="row  align-items-center justify-content-around mr-0 mt-5">
+    <div class="col-10 ">
+        <div class="d-flex justify-content-between">
+            <h1>Visit log</h1>
+            <div>
+                <!-- NEW PATIENT -->
+
+                <!-- Add Visit Log with new Patient -->
+                <button type="button" class="btn btn-primary btn-sm mt-3 add_new_patient_visit_modal"
+                        data-toggle="modal" data-target="#NewPatientModal">New Patient
+                </button>
+
+
+                <!-- OLD PATIENT -->
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary btn-sm mt-3 add_old_patient_visit_modal"
+                        data-toggle="modal" data-target="#exampleModal">Exisiting Patient
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                     aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Visit Log</h5>
+                                <button type="button" class="close" data-dismiss="modal" onclick="resetForm1()"
+                                        aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <h5 class="text-primary">Existing Patient</h5>
+                                    <div class="form-group ui-front">
+                                        <label>Patient ID:</label>
+                                        <input type="text" class="form-control" id="oldid"
+                                               placeholder="ID">
+                                    </div>
+                                    <hr>
+                                    <h5 class="text-primary">Visit Info</h5>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label>Date:</label>
+                                            <input type="date" class="form-control" id="olddate">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label>Time:</label>
+                                            <input type="time" class="form-control" id="oldtime">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Doctor:</label>
+                                        <input type="text" class="form-control" id="olddoctor"
+                                               placeholder="Doctor">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Problem:</label>
+                                        <input type="text" class="form-control" id="oldproblem"
+                                               placeholder="Problem">
+                                    </div>
+                                    <div id="addDisease1">
+                                        <!-- <div class="form-group">
+                                            <label>Usage:</label>
+                                            <input type="text" class="form-control" id="usage"
+                                                placeholder="Enter patient's name">
+                                        </div> -->
+                                    </div>
+                                    <div id="addLab1">
+                                        <!-- <div class="form-group">
+                                            <label>Usage:</label>
+                                            <input type="text" class="form-control" id="usage"
+                                                placeholder="Enter patient's name">
+                                        </div> -->
+                                    </div>
+
+
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" onclick="addLab1()">Lab</button>
+                                <button type="button" class="btn btn-success" onclick="addDisease1()">Disease</button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                        onclick="doAddOld();resetForm1()">Save
+                                </button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                                        onclick="resetForm1()">Close
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mr-0 ml-0 mb-3  mt-3 justify-content-around jumbotron">
+            <input type="search" class="form-control col-md-3 " id="myInput0" placeholder="Visit ID">
+            <input type="search" class="form-control col-md-3 " id="myInput1" placeholder="Date">
+            <input type="search" class="form-control col-md-3 " id="myInput2" placeholder="Patient ID">
+
+        </div>
+        <table class="table table-responsive-md table-hover  mt-3" id="visit_table">
+            <thead class="thead-dark">
+            <!-- <tr>
+      <th scope="col">
+          <input type="text" class="form-control" id="myInput0" onkeyup="searchID()" placeholder="ID">
+      </th>
+      <th scope="col">
+          <input type="text" class="form-control" id="myInput1" onkeyup="searchDoctor()" placeholder="Doctor">
+      </th>
+      <th scope="col">
+          <input type="text" class="form-control input-sm" id="myInput2" onkeyup="searchDate()" placeholder="Date">
+      </th>
+      <th scope="col">
+          <input type="text" class="form-control input-sm" id="myInput3" onkeyup="searchTime()" placeholder="Time">
+      </th>
+      <th scope="col">
+          <input type="text" class="form-control input-sm" id="myInput4" onkeyup="searchProblems()" placeholder="Problems">
+      </th>
+      <th scope="col">
+          <input type="text" class="form-control input-sm" id="myInput5" onkeyup="searchPatient()" placeholder="Patient">
+      </th>
+      <th></th>
+      <th></th>
+      </tr> -->
+            <tr>
+                <th scope="col-2">#</th>
+                <th scope="col-2">Doctor</th>
+                <th scope="col-2">Date</th>
+                <th scope="col-2">Time</th>
+                <th scope="col-2">Problems</th>
+                <th scope="col-2">Patient ID</th>
+                <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody id="visit_list">
+            <tr class="table_search">
+                <th scope="col">
+                    <input type="text" class="form-control" id="myInput0" onkeyup="searchDoctor()" placeholder="ID">
+                </th>
+                <th scope="col">
+                    <input type="text" class="form-control" id="myInput1" onkeyup="searchDoctor()" placeholder="Doctor">
+                </th>
+                <th scope="col">
+                    <input type="text" class="form-control input-sm" id="myInput2" onkeyup="searchDate()"
+                           placeholder="Date">
+                </th>
+                <th scope="col">
+                    <input type="text" class="form-control input-sm" id="myInput3" onkeyup="searchTime()"
+                           placeholder="Time">
+                </th>
+                <th scope="col">
+                    <input type="text" class="form-control input-sm" id="myInput4" onkeyup="searchProblems()"
+                           placeholder="Problems">
+                </th>
+                <th scope="col">
+                    <input type="text" class="form-control input-sm" id="myInput5" onkeyup="searchPatient()"
+                           placeholder="PatientID">
+                </th>
+                <th></th>
+                <th></th>
+            </tr>
+            </tbody>
+        </table>
+
+
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document" id="modal-content">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Visit Info</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="visit_details">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EDIT MODAL -->
+        <div class="modal fade" id="EditModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document" id="">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Edit Prescription</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Visit Modal -->
+    <!-- <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" id="modal_content">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Visit Log Info</h4>
+                    </div>
+                    <div class="modal-body" id="visit_details">
+                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+        </div>
+
+    </div> -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="NewPatientModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Visit Log</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <h5 class="text-primary">Patient Info</h5>
+                        <div class="form-group">
+                            <label>Name:</label>
+                            <input type="text" class="form-control" id="name"
+                                   placeholder="Name">
+                            <div id="container_tags">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Gender:</label>
+                            <select id="gender">
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select> <br>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Birthdate:</label>
+                            <input type="date" class="form-control" id="birthday">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Address:</label>
+                            <input type="text" class="form-control" id="address"
+                                   placeholder="Address">
+                        </div>
+                        <hr>
+                        <h5 class="text-primary">Visit Info</h5>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Date:</label>
+                                <input type="date" class="form-control" id="newdate">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Time:</label>
+                                <input type="time" class="form-control" id="newtime">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Doctor:</label>
+                            <input type="text" class="form-control" id="newdoctor"
+                                   placeholder="Doctor">
+                        </div>
+                        <div class="form-group">
+                            <label>Problem:</label>
+                            <input type="text" class="form-control" id="newproblem"
+                                   placeholder="Problems">
+                        </div>
+                        <div id="addDisease">
+                            <!-- <div class="form-group">
+                                <label>Usage:</label>
+                                <input type="text" class="form-control" id="usage"
+                                    placeholder="Enter patient's name">
+                            </div> -->
+                        </div>
+                        <div id="addLab">
+                        </div>
+
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" onclick="addLab()">Lab</button>
+                    <button type="button" class="btn btn-success" onclick="addDisease()">Disease</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="doAddNew();resetForm()">
+                        Save
+                    </button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="resetForm()">Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.js"></script>
+    <script type="text/javascript" src="Visit Javascript/search.js"></script>
+    <script type="text/javascript" src="Visit Javascript/detail.js"></script>
+    <script type="text/javascript" src="Visit Javascript/modal.js"></script>
+    <script type="text/javascript" src="Visit Javascript/visitCRUD.js"></script>
+    <script type="text/javascript" src="Visit Javascript/loadTable.js"></script>
+    <script type="text/javascript" src="Visit Javascript/autoComplete.js"></script>
+
+
+</div>
+</body>
+</html>
+<script src="main.js"></script>
+
+<script>
+    $("[data-toggle='#EditModal']").modal();
+
+    // Global variable Disease
+    var diseaseID = 1
+
+    function setDiseaseID(numb) {
+        diseaseID = numb
+    }
+
+    function getDiseaseID() {
+        return diseaseID
+    }
+
+    // Global variable Disease1
+    var diseaseID1 = 1
+
+    function setDiseaseID1(numb) {
+        diseaseID1 = numb
+    }
+
+    function getDiseaseID1() {
+        return diseaseID1
+    }
+
+    // Global variable Lab
+    var labID = 1
+
+    function setLabID(numb) {
+        labID = numb
+    }
+
+    function getLabID() {
+        return labID
+    }
+
+    // Global variable Lab
+    var labID1 = 1
+
+    function setLabID1(numb) {
+        labID1 = numb
+    }
+
+    function getLabID1() {
+        return labID1
+    }
+
+    //Load Visit Table
+    loadVisit()
+    openVisitID()
+    addNewPatientVisit()
+    addOldPatientVisit()
+    patientID_AC()
+
+    $('#myInput0').keydown(function (e) {
+        if (e.keyCode == 13) {
+            var i = $('#myInput0').val()
+            loadVisitByID(i)
+        }
+    })
+    $('#myInput1').keydown(function (e) {
+        if (e.keyCode == 13) {
+            var i = $('#myInput1').val()
+            loadVisitByDate(i)
+        }
+    })
+    $('#myInput2').keydown(function (e) {
+        if (e.keyCode == 13) {
+            var i = $('#myInput2').val()
+            loadVisitByPatientID(i)
+        }
+    })
+
+
+</script>

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery.extend demo</title>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<div id="log"></div>
+ 
+<script>
+var object1 = {
+  apple: 0,
+  cherry: 97
+};
+
+var ob1=[{
+     weight: 52, price: 100 
+}]
+var ob2=[{
+    weight: 52, price: 100
+}]
+
+ob1 = ob1.concat(ob2)
+var object2 = {
+  durian: 100,
+  pineapple: ob1
+};
+console.log(ob1)
+console.log(object2)
+// Merge object2 into object1, recursively
+$.extend({},object1, object2 );
+ 
+// Assuming JSON.stringify - not available in IE<8
+$( "#log" ).append( JSON.stringify( object1 ) );
+</script>
+ 
+</body>
+</html>
+

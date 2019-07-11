@@ -1,0 +1,26 @@
+body {
+    padding-top: 60px;
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 5px;
+    margin: 0 0 10px 0;
+    display: block;
+
+}
+.container {
+    padding-left: 20%;
+    padding-right: 20%;
+}
+.signupbtn {
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+footer {
+    margin-top: 480px;
+}

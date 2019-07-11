@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="Visit Javascript/style.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+
+        <nav id="mainNavBar" class="navbar  navbar-dark bg-dark navbar-expand-md py-0 sticky-top"  >
+                <a href="#" class="navbar-brand"><i class="fas fa-pizza-slice  "></i>Hospital</a>
+                <button type = "button" class="navbar-toggler" data-toggle="collapse" data-target="#navLinks" aria-label="Toggle Navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navLinks">
+                    <ul class="navbar-nav ">
+                        <li class="nav-item  "><a href="patient.html" class="nav-link">PATIENT</a></li>
+                        <li class="nav-item"><a href="visitlog.html" class="nav-link">VISIT</a></li>
+                        <li class="nav-item"><a href="prescription.html" class="nav-link">PRESCRIPTION</a></li>
+                        <li class="nav-item"><a href="disease.html" class="nav-link">DISEASE</a></li>
+                        <li class="nav-item"><a href="drug.html" class="nav-link">DRUG</a></li>
+                        <li class="nav-item"><a href="lab.html" class="nav-link">LAB</a></li>
+                        <li class="nav-item"><a id="logOut" href="index.html" class="nav-link">SIGN OUT</a></li>
+                    </ul>
+                </div>
+        </nav>
+
+    <div class="row  align-items-center justify-content-around mr-0 mt-5">
+        <div class="col-10 ">
+            <div class="d-flex justify-content-between">
+                <h1>Prescription</h1>
+                <div>
+                        <!-- NEW PRESCRIPTION -->
+                    
+                        <!-- Add New Presciption -->
+                        <button type="button" class="btn btn-primary btn-sm mt-2 add_prescription_model"  data-toggle="modal" data-target="#NewPatientModal">New Prescription</button>    
+                        <!-- Modal -->
+                        <div class="modal fade" id="NewPatientModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">New Prescription</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="resetForm()">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <div class="form-group ui-front">
+                                                <label>Visit ID:</label>
+                                                <input type="text" class="form-control" id="visitID"
+                                                    placeholder="Enter Visit ID">
+                                            </div>
+                                            <div id="addPrescribedDrug">
+                                                <!-- <div class="form-group">
+                                                    <label>Usage:</label>
+                                                    <input type="text" class="form-control" id="usage"
+                                                        placeholder="Enter patient's name">
+                                                </div> -->
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-success" onclick="addDrug()">New Drug</button>
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="doAdd();resetForm()">Save changes</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="resetForm()">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                
+            </div>
+            <div class="row mr-0 ml-0 mb-3  mt-3 justify-content-around jumbotron">
+                    <input type="search" class="form-control col-md-5 " id="myInput0"  placeholder="Presciption ID">
+                    <input type="search" class="form-control col-md-5 " id="myInput1" placeholder="Patient ID">
+
+            </div>
+            <table class="table table-responsive-md table-hover  mt-3" id="prescription_table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col-2">#</th>
+                    <th scope="col-2">Patient</th>
+                    <th scope="col-2">Doctor</th>
+                    <th scope="col-2">Visit ID</th>
+                    <th>Edit</th>
+                  </tr>
+                </thead>
+                <tbody id="prescription_list" >
+                </tbody>
+            </table>           
+        </div>
+        <!-- Prescription Detail Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document" id="modal-content">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Visit Log</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body"  id="prescription_details">
+
+                    </div>
+                    <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                    </div>
+                </div>
+        </div>
+
+        <!-- EDIT PRESCRIBED DRUGS -->
+        <div class="modal fade" id="EditModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document" id="">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Visit Log</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body"  id="edit_prescribed_drugs">
+
+                    </div>
+                    <div class="modal-footer" id="edit_save">
+                    </div>
+                    </div>
+                </div>
+        </div>
+
+        <!--Delete Drugs  -->
+        <div class="modal fade" id="EditModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document" id="">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Visit Log</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body"  id="edit_prescribed_drugs">
+
+                </div>
+                <div class="modal-footer" id="edit_save">
+                </div>
+                </div>
+            </div>
+    </div>
+    </div>
+    
+      
+      
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.js"></script>  
+    <script type="text/javascript" src="Prescription Javascript/details.js"></script>
+    <script type="text/javascript" src="Prescription Javascript/prescriptionCRUD.js"></script>
+    <script type="text/javascript" src="Prescription Javascript/loadTable.js"></script>
+    <script type="text/javascript" src="Prescription Javascript/modal.js"></script>
+    <script type="text/javascript" src="Prescription Javascript/autoComplete.js"></script>
+    <script type="text/javascript" src="Prescription Javascript/searchFilter.js"></script>
+
+
+
+  </body>
+</html>
+<script src="main.js"></script>
+
+<script>
+
+    // Global variable a
+    var a = 1
+    function setA(numb){
+        a = numb
+    }
+    function getA(){
+        return a
+    }
+
+
+    //Load Visit Table
+    loadPrescription()
+    openPrescriptionID()
+    addPrescription()
+    openEditID()
+    drug_AC()
+    //visitID_AC()
+    $('#myInput0').keydown(function (e){
+        if(e.keyCode == 13){
+            var i = $('#myInput0').val()
+            loadPrescriptionByID(i)
+        }
+    })
+    $('#myInput1').keydown(function (e){
+        if(e.keyCode == 13){
+            var i = $('#myInput1').val()
+            loadPrescriptionByPatientID(i)
+        }
+    })  
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+</script>

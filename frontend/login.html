@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Hospital Management System</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body class="text-center">
+<!-- Top navigation bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">Medic</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topNavbar"
+                aria-controls="topNavbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="topNavbar">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="patient.html">Sign In</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<h1 class="title my-5">Medic Hospital</h1>
+<form class="form-signin">
+    <h1 class="h3 mb-3 font-weight-normal">Sign In</h1>
+    <input type="email" id="username" class="form-control" placeholder="Username" required="" autofocus="">
+    <input type="password" id="password" class="form-control" placeholder="Password" required="">
+    <div class="checkbox mb-0">
+        <label>
+            <input id="checkToRemeber" type="checkbox" value="remember-me"> Remember me
+        </label>
+    </div>
+
+    <div class="mb-3">
+        <a href="signup.html">Don't have an account? Sign up here.</a>
+    </div>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="login();document.location.href='patient.html';">
+        Sign in
+    </button>
+</form>
+
+<footer class="py-4 bg-dark fixed-bottom">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Medic 2019. All rights reserved.</p>
+    </div>
+
+</footer>
+</body>
+<script src="main.js"></script>
+
+<script>
+
+
+    function login() {
+
+        sessionStorage.username = $('#username').val()
+        sessionStorage.password = $('#password').val()
+
+
+        if ($('#checkToRemeber').is(":checked")) {
+            localStorage.username = sessionStorage.username
+            localStorage.password = sessionStorage.password
+        } else {
+            localStorage.removeItem('username')
+            localStorage.removeItem('password')
+        }
+    }
+
+</script>
