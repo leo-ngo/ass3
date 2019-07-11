@@ -1,6 +1,6 @@
 
 // api
-var baseURL = "http://http://3.0.135.5:8080"
+var baseURL = "http://3.0.135.5:8080"
 
 // auth
 
