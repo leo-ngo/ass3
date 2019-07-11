@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed3689e0-fae9-45f3-82a4-963bb5cc3e5f" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/contact.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/disease.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/disease.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/drug.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/drug.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/lab.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/lab.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/patient.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/patient.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/prescription.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/prescription.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/signup.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/visitlog.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/visitlog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Visit Javascript/autoComplete.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Visit Javascript/autoComplete.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -88,15 +77,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="signup.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/signup.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="69" selection-start-line="16" selection-start-column="69" selection-end-line="16" selection-end-column="69" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="contact.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/contact.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -106,11 +86,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="about.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="about.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/about.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
               <caret line="8" column="69" selection-start-line="8" selection-start-column="69" selection-end-line="8" selection-end-column="69" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="autoComplete.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/frontend/Visit Javascript/autoComplete.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-39">
+              <caret line="62" column="60" selection-start-line="62" selection-start-column="60" selection-end-line="62" selection-end-column="60" />
             </state>
           </provider>
         </entry>
@@ -120,7 +109,6 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>fetch</find>
-      <find>ajax</find>
       <find>scr</find>
       <find>close</find>
       <find>place</find>
@@ -129,6 +117,7 @@
       <find>data-d</find>
       <find>add</find>
       <find>patient</find>
+      <find>ajax</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -158,7 +147,6 @@
         <option value="$PROJECT_DIR$/frontend/Prescription Javascript/loadTable.js" />
         <option value="$PROJECT_DIR$/frontend/Prescription Javascript/prescriptionCRUD.js" />
         <option value="$PROJECT_DIR$/frontend/Prescription Javascript/searchFilter.js" />
-        <option value="$PROJECT_DIR$/frontend/Visit Javascript/autoComplete.js" />
         <option value="$PROJECT_DIR$/frontend/Visit Javascript/detail.js" />
         <option value="$PROJECT_DIR$/frontend/Visit Javascript/loadTable.js" />
         <option value="$PROJECT_DIR$/frontend/Visit Javascript/search.js" />
@@ -181,6 +169,7 @@
         <option value="$PROJECT_DIR$/frontend/disease.html" />
         <option value="$PROJECT_DIR$/frontend/contact.html" />
         <option value="$PROJECT_DIR$/frontend/about.html" />
+        <option value="$PROJECT_DIR$/frontend/Visit Javascript/autoComplete.js" />
       </list>
     </option>
   </component>
@@ -236,6 +225,12 @@
               <item name="Assignment2" type="462c0819:PsiDirectoryNode" />
               <item name="frontend" type="462c0819:PsiDirectoryNode" />
               <item name="Patient Javascript" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Assignment2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Assignment2" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="Visit Javascript" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Assignment2" type="b2602c69:ProjectViewProjectNode" />
@@ -347,12 +342,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1562847420819</updated>
-      <workItem from="1562847423700" duration="5976000" />
+      <workItem from="1562847423700" duration="6678000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5976000" />
+    <option name="totallyTimeSpent" value="6678000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -409,13 +404,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="11" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/Visit Javascript/autoComplete.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="32" column="60" selection-start-line="32" selection-start-column="60" selection-end-line="32" selection-end-column="60" />
         </state>
       </provider>
     </entry>
@@ -709,6 +697,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="69" selection-start-line="8" selection-start-column="69" selection-end-line="8" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/Visit Javascript/autoComplete.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-39">
+          <caret line="62" column="60" selection-start-line="62" selection-start-column="60" selection-end-line="62" selection-end-column="60" />
         </state>
       </provider>
     </entry>

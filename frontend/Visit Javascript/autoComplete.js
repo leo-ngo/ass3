@@ -2,6 +2,7 @@ function patientID_AC() {
     $("#oldid").autocomplete({
         source: function (request, response) {
             $.ajax({
+                headers: {'Authorization': 'Basic ' + code},
                 type: "GET",
                 url: baseURL + "/patients/searchByName",
                 dataType: "json",
@@ -59,6 +60,7 @@ function lab_AC(id) {
     $('#'+id).autocomplete({
         source: function (request, response) {
             $.ajax({
+                headers: {'Authorization': 'Basic ' + code},
                 type: "GET",
                 url: baseURL + "/labs/searchByService",
                 dataType: "json",
