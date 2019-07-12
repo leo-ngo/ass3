@@ -17,7 +17,7 @@ function loadDetail(id){
     }
   
     fetch(baseURL + '/diseases/searchByID/'+id,{
-        headers: {'Authorization': 'Basic ' + code}
+        headers: {'Authorization': 'Basic ' + code},
         method: 'get'})
     .then((res) => res.json())
     .then((json) => {
