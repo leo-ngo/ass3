@@ -69,6 +69,7 @@ function doAddOld() {
     var labArray = []
     for(i = getLabID(); i > 0; i--){
         labTests = {
+            "note": $('#labnote1'+i).val(),
             "labType":{
                 "id": $('#lab1'+i).val()
             }
