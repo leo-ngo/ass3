@@ -27,7 +27,7 @@ public class Disease {
 
 
 
-    @OneToMany(mappedBy = "disease", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "disease", fetch = FetchType.LAZY)
     @Cascade(CascadeType.ALL)
     @Fetch(FetchMode.SUBSELECT)
     @JsonIgnore
