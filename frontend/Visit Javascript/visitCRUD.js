@@ -59,7 +59,6 @@ function doAddOld() {
     console.log(getDiseaseID1())
     for(i = getDiseaseID1(); i > 0; i--){
         disease = {
-            "note": $('#labnote1'+i).val(),
             "disease":{
                 "id": $('#disease1'+i).val()
             }
